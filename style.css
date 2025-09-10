@@ -25,7 +25,8 @@ body {
 
 .line {
     white-space: pre-wrap; 
-    word-break: break-all; 
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .prompt-line {
