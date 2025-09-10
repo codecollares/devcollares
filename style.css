@@ -1,0 +1,90 @@
+:root {
+    --bg-color: #1a1b26;
+    --fg-color: #a9b1d6;
+    --prompt-color: #bb9af7;
+    --command-color: #c0caf5;
+    --accent-color: #7dcfff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box; 
+}
+
+#terminal {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.line {
+    white-space: pre-wrap; 
+    word-break: break-all; 
+}
+
+.prompt-line {
+    display: flex;
+    align-items: baseline; 
+}
+
+.prompt {
+    color: var(--prompt-color);
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.command-input {
+    background: none;
+    border: none;
+    color: var(--command-color);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0; 
+}
+
+.command-input:focus {
+    outline: none; 
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em; 
+    background-color: var(--fg-color);
+    animation: blink 1s step-end infinite;
+    vertical-align: baseline;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent; 
+    }
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.output .title {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#text-ruler {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+}
