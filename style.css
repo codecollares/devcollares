@@ -89,3 +89,9 @@ a:hover {
     font-family: 'Fira Code', monospace;
     font-size: 16px;
 }
+
+.ascii-art {
+    white-space: pre;
+    overflow-x: auto;
+    padding-bottom: 10px; 
+}

@@ -18,12 +18,15 @@ const commands = {
 
 const welcomeMessage = `Bem-vindo ao Collacritty, meu terminal de acesso. c:\nDigite '<span class="title">ajuda</span>' para ver a lista de comandos disponíveis.\n`;
 
-function printOutput(html) {
-     const line = document.createElement('div');
-     line.classList.add('line', 'output');
-     line.innerHTML = html;
-     outputContainer.appendChild(line);
-     terminal.scrollTop = terminal.scrollHeight; 
+function printOutput(html, customClass = null) {
+    const line = document.createElement('div');
+    line.classList.add('line', 'output');
+    if (customClass) {
+        line.classList.add(customClass);
+    }
+    line.innerHTML = html;
+    outputContainer.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight;
 }
 
 function adjustInputWidth() {
@@ -38,7 +41,13 @@ function handleCommand(command) {
     if (command in commands) {
         const output = commands[command];
         const result = (typeof output === 'function') ? output() : output;
-        if (result) printOutput(result);
+       if (result) {
+            if (command === 'umbreon') {
+                printOutput(result, 'ascii-art');
+            } else {
+                printOutput(result); 
+            }
+        }
     } else {
         printOutput(`Comando não encontrado: ${command}. Digite 'ajuda' para ver a lista.`);
     }
